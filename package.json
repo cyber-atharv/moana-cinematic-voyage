@@ -1,5 +1,5 @@
 {
-  "name": "moana",
+  "name": "moana-cinematic-voyage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,5 +23,6 @@
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "Moana Cinematic Voyage - Interactive 3D Canvas Journey Experience"
 }

@@ -1,5 +1,5 @@
 'use client';
-
+import { assetUrl } from '../lib/asset';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
@@ -49,7 +49,7 @@ export default function Hero() {
     let ready = false;
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
-      img.src = `/${FOLDER}/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+      img.src = assetUrl(`/${FOLDER}/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`);
       img.onload = () => {
         images.current[i] = img;
         if (!ready) { ready = true; frameRef.current = i; draw(i); }
@@ -220,6 +220,11 @@ export default function Hero() {
       </div>
 
       {/* ── BOTTOM BAR ── */}
+      {/* Creator Tag */}
+      <div style={{ position: 'absolute', bottom: 'clamp(58px, 8.5vh, 74px)', right: 'clamp(1.2rem, 4vw, 2.8rem)', zIndex: 10, background: 'rgba(2,14,26,0.6)', backdropFilter: 'blur(8px)', padding: '4px 10px', borderRadius: '4px', border: '1px solid rgba(0,212,170,0.2)' }}>
+        <span style={{ fontFamily: 'monospace', fontSize: '0.45rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.15em' }}>VOYAGE BY </span>
+        <a href="https://github.com/cyber-atharv" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'monospace', fontSize: '0.45rem', color: 'rgba(0,240,195,0.95)', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.15em' }}>ATHARV HOGADE</a>
+      </div>
       <div ref={bottomRef} style={{
         position: 'absolute', bottom: 0, left: 0, right: 0, opacity: 0,
         display: 'flex', alignItems: 'center',
